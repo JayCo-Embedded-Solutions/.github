@@ -40,6 +40,18 @@ The [Range-Recon-Remote-Controller](https://github.com/JayCo-Embedded-Solutions/
 
 ## Hardware Overview
 
+For this project, we developed our own custom flight controller using Altium Designer. This is the main hardware development portion of the project (excluding prototyping). A picture of the final product is shown below (3D View):
+
+![rangeReconFC_PCB](https://github.com/JayCo-Embedded-Solutions/.github/assets/121917210/91ea2fff-f13b-461d-a891-54ffbbd63994)
+
+And top copper below:
+
+![rangeReconTopCopper](https://github.com/JayCo-Embedded-Solutions/.github/assets/121917210/d6ad4111-7f27-4ff7-b971-2837fe5b873e)
+
+As indicated in the above pictures, the hardware design is split into multiple different sections, each containing different sensors/peripherals that we developed firmware to interface with. This includes our IMU (MPU6500), Magnetometer (LIS3MDL), Barometer (BMP390), and others. 
+
+The other hardware design files, including schematic pages and gerber files, are located in the [Range-Recon-Flight-Controller/Hardware](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Flight-Controller/tree/f446prototype/hardware) directory.
+
 ## Other Documentation
 - Project Specification
 - Milestone Report
