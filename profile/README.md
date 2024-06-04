@@ -1,15 +1,4 @@
-## Hi there 👋
-
-<!--
-
-**Here are some ideas to get you started:**
-
-🙋‍♀️ A short introduction - what is your organization all about?
-🌈 Contribution guidelines - how can the community get involved?
-👩‍💻 Useful resources - where can the community find your docs? Is there anything else the community should know?
-🍿 Fun facts - what does your team eat for breakfast?
-🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
--->
+# JayCo Embedded Solutions
 ![Range Recon Logo](https://drive.google.com/uc?id=1eECACmVXNv3WCFBJkXMfIDpm5NHQGud7)
 
 ## Brief Overview (Abstract)
@@ -24,19 +13,29 @@ This allowed us to optimize our quadcopter at lower levels than what would be ty
 ### Cody Rupp
 - 3rd year computer science major
 - Primarily responsible for firmware development
+- [LinkedIn](https://www.linkedin.com/in/codyprupp/)
 
 ### Jeremy Lautoa-Capelle 
 - 4th year electrical engineering major
 - Primarily responsible for hardware development
+- [LinkedIn](https://www.linkedin.com/in/jlautoa/)
 
 ## Setup Instructions
 
 ## Safety Guidelines
+Safety is a critical part of this project, given that nearly every single component is a potential point of failure, and the high speeds and altitudes reached can cause serious damage. Thus, we have developed a multitude of safety features and adopted a set of guidelines to follow when testing or operating the quadcopter.
 
-## Software Overview
-The [Range-Recon-Flight-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Flight-Controller) repository hosts all the firmware written for the quadcopter's flight controller, including sensor drivers, picture-taking functions, and of course the flight control algorithm.
+Firstly, our flight control firmware has two main ways of detecting and countering a hazard:
+- Independent Watchdog Timer (IWDG)
+    - The IWDG is a hardware timer built into the STM32F446 microcontroller that will reset the device if the timer is not refreshed before a specific time period. In our case, there is a 125ms timer that runs after the initial setup, and will only be refreshed if the RF module receives data. This way, 
+- Unsafe Angle Shutoff
 
-The [Range-Recon-Remote-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Remote-Controller) repository contains the firmware for the quadcopter companion remote controller.
+We also have a variety of on-site safety guidelines ee
+
+## Firmware Overview
+The [Range-Recon-Flight-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Flight-Controller) repository hosts all the firmware written for the quadcopter's flight controller, including various sensor drivers, filters, picture-taking functions, and of course the flight control algorithm.
+
+The [Range-Recon-Remote-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Remote-Controller) repository contains the firmware for the quadcopter's companion remote controller, including RF transceiver drivers, analog joystick drivers, and OLED drivers.
 
 ## Hardware Overview
 
