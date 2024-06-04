@@ -29,7 +29,7 @@ This allowed us to optimize our quadcopter at lower levels than what would be ty
 - 4th year electrical engineering major
 - Primarily responsible for hardware development
 
-## Project Overview/Setup
+## Project Setup
 
 As previously mentioned, the goal of our project is to develop our own aerial photography drone while building our own software drivers and custom hardware. Most of our work in this project went into developing firmware for all devices (IMU, Barometer, etc.) from scratch, as well as architecting our own flight controller (both algorithm and PCB). The (vast amount of) other time was spent on building, troubleshooting, and repairing our prototypes, as well as testing and tuning our flight control algorithm.
 
