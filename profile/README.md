@@ -20,9 +20,27 @@ while following a ground-up approach to interfacing with each peripheral device.
 In developing these drivers, we gained significant experience with several hardware communication protocols such as I2C, UART, SPI, and became deeply familiar with the inner workings of each peripheral device. 
 This allowed us to optimize our quadcopter at lower levels than what would be typically achievable using existing libraries, improving on battery life, communication speed, and memory efficiency.
 
-## Repository Layouts/Organization
-The [Range-Recon-Flight-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Flight-Controller) repository hosts all the firmware written for the quadcopter's flight controller, including sensor drivers, picture-taking functions, and of course the flight control algorithm.
+## The Team
+### Cody Rupp
+- 3rd year computer science major
+- Primarily responsible for firmware development
 
-The [Range-Recon-Remote-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Remote-Controller) repository contains the firmware for the quadcopter companion remote controller. 
+### Jeremy Lautoa-Capelle 
+- 4th year electrical engineering major
+- Primarily responsible for hardware development
 
 ## Setup Instructions
+
+## Safety Guidelines
+
+## Software Overview
+The [Range-Recon-Flight-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Flight-Controller) repository hosts all the firmware written for the quadcopter's flight controller, including sensor drivers, picture-taking functions, and of course the flight control algorithm.
+
+The [Range-Recon-Remote-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Remote-Controller) repository contains the firmware for the quadcopter companion remote controller.
+
+## Hardware Overview
+
+## Other Documentation
+- Project Specification
+- Milestone Report
+- Final Report (Coming Soon!)
