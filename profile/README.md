@@ -29,7 +29,30 @@ This allowed us to optimize our quadcopter at lower levels than what would be ty
 - 4th year electrical engineering major
 - Primarily responsible for hardware development
 
-## Setup Instructions
+## Project Overview/Setup
+
+As previously mentioned, the goal of our project is to develop our own aerial photography drone while building our own software drivers and custom hardware. Most of our work in this project went into developing firmware for all devices (IMU, Barometer, etc.) from scratch, as well as architecting our own flight controller (both algorithm and PCB). The (vast amount of) other time was spent on building, troubleshooting, and repairing our prototypes, as well as testing and tuning our flight control algorithm.
+
+A high-level overview of our work is shown below:
+
+![rangeReconOverview](https://github.com/JayCo-Embedded-Solutions/.github/assets/121917210/0975abe5-5dd7-471d-8a61-373c708f3b3c)
+
+Our objectives for the project were to develop hardware drivers for each of our sensors and actuators to be able to interface with them using our microcontroller.
+
+Hardware Component List:
+- MCU (Flight Controller): STM32F446RET6
+- IMU: MPU6500
+- Barometer: BMP390
+- RFIC: NRF24L01
+- Magnetometer: LIS3MDL
+- MCU (Remote Controller): STM32F103C8T6
+
+After developing our hardware drivers and establishing reliable communication between our flight controller and remote controller, we worked on developing our flight control algorithm.
+
+Shown below is one of the early prototypes of our drone:
+
+![rangeReconprototype](https://github.com/JayCo-Embedded-Solutions/.github/assets/121917210/2ec54037-ead5-4695-ac14-9c08d44776cf)
+
 
 ## Safety Guidelines
 
@@ -52,6 +75,11 @@ As indicated in the above pictures, the hardware design is split into multiple d
 
 The other hardware design files, including schematic pages and gerber files, are located in the [Range-Recon-Flight-Controller/Hardware](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Flight-Controller/tree/f446prototype/hardware) directory.
 
+Now, for some general features of the hardware design:
+
+- The sensors and peripherals selected for the hardware design were selected to be the same modules that were used for prototyping. This is to reduce uncertainty and boost confidence in the board working on the first try, since they are components that we are familiar with.
+- The placement of (most of) the components on the board is according to our STM32 IOC file, which determines which ports on the chip are used for which devices. Placing the components based on their pin locations is best to maximize signal integrity (not having to run many long traces), and make it easier for routing as well. Of course there are exceptions to this rule since board space is limited.
+- The stackup for this design is a 4-layer controlled-impedance stackup. There are signal layers on the bottom and top layers, with two inner GND layers. We need controlled impedance for this design for routing the RF section.
 ## Other Documentation
 - Project Specification
 - Milestone Report
