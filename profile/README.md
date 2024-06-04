@@ -84,16 +84,33 @@ File Layout (currently refers to f446prototype branch, will be updated):
     |   |   |   ├──flightController.h
     |   |   |   └──...
     |   |   └──Src                      <-- Contains all user code
-    |   |   |   ├──main.c
-    |   |   |   ├──flightController.c
-    |   |   |   └──...
+    |   |       ├──main.c
+    |   |       ├──flightController.c
+    |   |       └──...
     |   ├── .cproject                   <-- Import project with this
     |   └── f446testprototype.ioc       <-- View/configure pinout
     └── hardware
         ├── gerb1.zip                   <-- Downloadable PCB files
         └── rangeReconMk1SCHPages.pdf   <-- Viewable schematic
 
+At a high level, the flight controller takes in sensor data from its IMU, barometer, and magnetometer, and then fuses and filters them to get coherent pitch, roll, yaw, vertical velocity, altitude, and heading values. The specifics of how they are fused and filtered can be seen within the files. Then, when data is received over the RF transceiver module, the flight controller compares those "desired" movement values to the "measured" sensor values, and actuates the motors based on a PID control algorithm (available in `flightController.c` and `pidControl.c`). If the RF sends the signal to take a picture, the camera is given the command to take a picture, and that image data is stored in a micro SD card.
+
 The [Range-Recon-Remote-Controller](https://github.com/JayCo-Embedded-Solutions/Range-Recon-Remote-Controller) repository contains the firmware for the quadcopter's companion remote controller, including RF transceiver drivers, analog joystick drivers, and OLED drivers.
+
+File Layout:
+
+    root
+    ├── Core
+    |   ├── Inc                     <-- Header files for user code
+    |   |   ├── main.h
+    |   |   └── nRF24l01.h
+    |   └── Src                     <-- Contains all user code
+    |       ├── main.c
+    |       └── nRF24l01.c          <-- nRF24 module drivers
+    ├── .cproject
+    └── bluepill_nrf24l01_controller.ioc
+
+The remote controller is much simpler than the flight controller. It simply reads the analog joystick values with a DMA, and then sends those raw values over the RF transceiver to the flight controller. We are working to implement an OLED display to show some in flight telemetry.
 
 ## Hardware Overview
 
@@ -114,7 +131,8 @@ Now, for some general features of the hardware design:
 - The sensors and peripherals selected for the hardware design were selected to be the same modules that were used for prototyping. This is to reduce uncertainty and boost confidence in the board working on the first try, since they are components that we are familiar with.
 - The placement of (most of) the components on the board is according to our STM32 IOC file, which determines which ports on the chip are used for which devices. Placing the components based on their pin locations is best to maximize signal integrity (not having to run many long traces), and make it easier for routing as well. Of course there are exceptions to this rule since board space is limited.
 - The stackup for this design is a 4-layer controlled-impedance stackup. There are signal layers on the bottom and top layers, with two inner GND layers. We need controlled impedance for this design for routing the RF section.
+
 ## Other Documentation
-- Project Specification
-- Milestone Report
+- [Project Specification](https://drive.google.com/file/d/12DUhvl7pq2MYKs3B_Zq3_H3mgaKwSOg2/view?usp=sharing)
+- [Milestone Report](https://drive.google.com/file/d/1jUV10IAVyD7B5ZanoJeC3_bdeJAXxO_Y/view?usp=sharing)
 - Final Report (Coming Soon!)
