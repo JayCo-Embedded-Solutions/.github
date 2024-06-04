@@ -10,7 +10,7 @@
 🍿 Fun facts - what does your team eat for breakfast?
 🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 -->
-![image](https://drive.google.com/file/d/1eECACmVXNv3WCFBJkXMfIDpm5NHQGud7/view?usp=sharing)
+![https://drive.google.com/file/d/1eECACmVXNv3WCFBJkXMfIDpm5NHQGud7/view?usp=sharing](Range Recon Logo)
 
 ## Brief Overview (Abstract)
 Many students have experience building systems without understanding the underlying drivers actuating the device. 
